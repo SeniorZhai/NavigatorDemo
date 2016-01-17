@@ -6,11 +6,7 @@
 
 var React = require('react-native');
 var {
-  View,
-  Text,
   Navigator,
-  StyleSheet,
-  TouchableOpacity,
   AppRegistry
 } = React;
 
@@ -24,7 +20,8 @@ var NavigatorDemo = React.createClass({
        <Navigator
          initialRoute={{ name: defaultName, component: defaultComponent }}
          configureScene={() => {
-           return Navigator.SceneConfigs.VerticalDownSwipeJump;
+            // ./node_modules/Libraries/CustomComponents/NavigatorSceneConfigs.js 文件可以看到支持的进场动画
+            return Navigator.SceneConfigs.HorizontalSwipeJump;
          }}
          renderScene={(route, navigator) => {
            let Component = route.component;
@@ -36,7 +33,5 @@ var NavigatorDemo = React.createClass({
     );
   }
 });
-
-
 
 AppRegistry.registerComponent('NavigatorDemo', () => NavigatorDemo);
